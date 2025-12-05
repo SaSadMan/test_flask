@@ -29,7 +29,11 @@ def calc():
     if request.method == 'POST':
         a = request.form.get('a')
         b = request.form.get('b')
-        return f'Сумма: {int(a)+int(b)}'
+        try:
+            result = int(a) + int(b)
+            return f'Сумма: {result}'
+        except (ValueError, TypeError):
+            return 'Ошибка: введите числа', 400
     else:
         return '''
             <form method = "post" >
