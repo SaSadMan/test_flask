@@ -32,7 +32,7 @@ def calc():
         return f'Сумма: {int(a)+int(b)}'
     else:
         return '''
-            <form method = "post">
+            <form method = "post" >
                 Первое число: <input name="a"><br>
                 Второе число: <input name="b"><br>
                 <button type="submit">Рассчитать</button>
@@ -41,6 +41,6 @@ def calc():
             '''
 
 
-
+#init
 if __name__ == '__main__':
     app.run(port=3001)
