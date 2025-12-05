@@ -1,6 +1,8 @@
 import pytest
 from flask import Flask
-from app import app  # импортируйте ваше приложение
+from app import app 
+import os
+import sys
 
 @pytest.fixture
 def client():
@@ -21,8 +23,8 @@ def test_post_request_with_valid_numbers(client):
 
 def test_post_request_with_invalid_input(client):
     response = client.post('/calc', data={'a': 'abc', 'b': '3'})
-    assert response.status_code == 500  # или другой ожидаемый статус
+    assert response.status_code == 400
 
 def test_post_request_with_empty_fields(client):
     response = client.post('/calc', data={'a': '', 'b': ''})
-    assert response.status_code == 500  # или другой ожидаемый статус
+    assert response.status_code == 400
